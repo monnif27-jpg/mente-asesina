@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mente Asesina — 100 Murdokus que entrenan tu mente para pensar diferente</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black:   #0A0A0A;
+    --dark:    #111111;
+    --card:    #161616;
+    --border:  #222222;
+    --red:     #E63946;
+    --red-dim: #8B1A21;
+    --white:   #F5F0EB;
+    --muted:   #888888;
+    --light:   #CCCCCC;
+    --serif:   'Playfair Display', Georgia, serif;
+    --body:    'EB Garamond', Georgia, serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--body);
+    font-size: 18px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  /* ── CONTAINER ── */
+  .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+  .container-wide { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+  /* ── GRID BACKGROUND DECORATION ── */
+  .grid-bg {
+    position: absolute;
+    top: 0; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 600px;
+    opacity: 0.04;
+    pointer-events: none;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    padding: 100px 0 80px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-eyebrow {
+    font-family: var(--body);
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.1s forwards;
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(52px, 8vw, 96px);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+
+  .hero-title .line-red { color: var(--red); display: block; }
+  .hero-title .line-white { color: var(--white); display: block; }
+
+  .hero-sub {
+    font-family: var(--body);
+    font-size: 22px;
+    font-style: italic;
+    color: var(--light);
+    max-width: 560px;
+    margin-bottom: 56px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.35s forwards;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.5s forwards;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--red);
+    color: var(--white);
+    font-family: var(--body);
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 18px 48px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: #c1202c; transform: translateY(-2px); }
+
+  .hero-price {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .hero-price-old {
+    font-family: var(--body);
+    font-size: 16px;
+    color: var(--muted);
+    text-decoration: line-through;
+    margin-left: 8px;
+  }
+  .hero-price-note {
+    font-family: var(--body);
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 96px 0; border-bottom: 1px solid var(--border); }
+
+  .section-label {
+    font-family: var(--body);
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 24px;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 32px;
+    color: var(--white);
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--red);
+  }
+
+  /* ── PROBLEMA ── */
+  .problem-list {
+    list-style: none;
+    margin-top: 40px;
+  }
+
+  .problem-list li {
+    position: relative;
+    padding: 20px 0 20px 36px;
+    border-top: 1px solid var(--border);
+    font-family: var(--body);
+    font-size: 19px;
+    color: var(--light);
+    line-height: 1.6;
+  }
+  .problem-list li:last-child { border-bottom: 1px solid var(--border); }
+
+  .problem-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--red);
+    font-weight: 700;
+  }
+
+  .problem-closer {
+    margin-top: 48px;
+    font-family: var(--serif);
+    font-size: 26px;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.4;
+    border-left: 3px solid var(--red);
+    padding-left: 28px;
+  }
+
+  /* ── TRANSFORMACIÓN ── */
+  .transform-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  @media (max-width: 600px) {
+    .transform-grid { grid-template-columns: 1fr; }
+  }
+
+  .transform-card {
+    background: var(--card);
+    padding: 36px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .transform-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--red);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .transform-card:hover::before { opacity: 1; }
+
+  .transform-num {
+    font-family: var(--serif);
+    font-size: 64px;
+    font-weight: 900;
+    color: var(--border);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .transform-text {
+    font-family: var(--body);
+    font-size: 18px;
+    color: var(--light);
+    line-height: 1.6;
+  }
+
+  .transform-text strong {
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  /* ── QUÉ INCLUYE ── */
+  .includes-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  @media (max-width: 600px) {
+    .includes-wrapper { grid-template-columns: 1fr; }
+  }
+
+  .include-item {
+    background: var(--card);
+    padding: 28px 28px 28px 52px;
+    position: relative;
+    font-family: var(--body);
+    font-size: 17px;
+    color: var(--light);
+    line-height: 1.5;
+    border-left: 1px solid var(--border);
+    transition: border-color 0.2s;
+  }
+  .include-item:hover { border-left-color: var(--red); }
+
+  .include-item::before {
+    content: '✓';
+    position: absolute;
+    left: 20px;
+    top: 28px;
+    color: var(--red);
+    font-size: 16px;
+    font-weight: 700;
+    font-family: var(--body);
+  }
+
+  .include-item strong {
+    display: block;
+    color: var(--white);
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+
+  /* ── NIVELES ── */
+  .levels-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  @media (max-width: 600px) {
+    .levels-row { grid-template-columns: 1fr; }
+  }
+
+  .level-card {
+    background: var(--card);
+    padding: 40px 28px;
+    text-align: center;
+    position: relative;
+  }
+
+  .level-card.featured {
+    background: #1A0608;
+    border: 1px solid var(--red-dim);
+  }
+
+  .level-tag {
+    font-family: var(--body);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .level-tag.aprendiz { color: var(--muted); }
+  .level-tag.inspector { color: var(--light); }
+  .level-tag.asesino { color: var(--red); }
+
+  .level-num {
+    font-family: var(--serif);
+    font-size: 56px;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 8px;
+    color: var(--white);
+  }
+
+  .level-label {
+    font-family: var(--body);
+    font-size: 14px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    margin-bottom: 20px;
+  }
+
+  .level-desc {
+    font-family: var(--body);
+    font-size: 16px;
+    color: var(--light);
+    line-height: 1.5;
+  }
+
+  /* ── OBJECIONES ── */
+  .objection-list {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .objection-item {
+    background: var(--card);
+    overflow: hidden;
+    border-left: 3px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .objection-item:hover { border-left-color: var(--red); }
+
+  .objection-q {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 28px 32px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .objection-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--red);
+    color: var(--red);
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+
+  .objection-question {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.3;
+    flex: 1;
+  }
+
+  .objection-answer {
+    padding: 0 32px 28px 80px;
+    font-family: var(--body);
+    font-size: 17px;
+    color: var(--light);
+    line-height: 1.7;
+    display: none;
+  }
+
+  .objection-item.open .objection-answer { display: block; }
+  .objection-item.open { border-left-color: var(--red); }
+
+  /* ── BONUS ── */
+  .bonus-box {
+    background: #12060A;
+    border: 1px solid var(--red-dim);
+    padding: 48px 40px;
+    margin-top: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bonus-box::after {
+    content: 'BONUS';
+    position: absolute;
+    top: -18px; right: 32px;
+    font-family: var(--serif);
+    font-size: 120px;
+    font-weight: 900;
+    color: var(--red);
+    opacity: 0.04;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .bonus-label {
+    font-family: var(--body);
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 16px;
+  }
+
+  .bonus-title {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .bonus-desc {
+    font-family: var(--body);
+    font-size: 17px;
+    color: var(--light);
+    line-height: 1.7;
+    max-width: 580px;
+  }
+
+  /* ── QUOTE ── */
+  .quote-section {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .quote-text {
+    font-family: var(--serif);
+    font-size: clamp(28px, 4vw, 44px);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.3;
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .quote-text span { color: var(--red); }
+
+  /* ── CTA FINAL ── */
+  .cta-section {
+    padding: 100px 0 120px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(230,57,70,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-title {
+    font-family: var(--serif);
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    color: var(--white);
+  }
+
+  .cta-sub {
+    font-family: var(--body);
+    font-size: 20px;
+    font-style: italic;
+    color: var(--light);
+    margin-bottom: 56px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-box {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .btn-large {
+    display: inline-block;
+    background: var(--red);
+    color: var(--white);
+    font-family: var(--body);
+    font-size: 18px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 22px 72px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 0 40px rgba(230,57,70,0.25);
+  }
+  .btn-large:hover {
+    background: #c1202c;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 60px rgba(230,57,70,0.4);
+  }
+
+  .cta-price-display {
+    font-family: var(--serif);
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--white);
+  }
+
+  .cta-price-old {
+    font-family: var(--body);
+    font-size: 18px;
+    color: var(--muted);
+    text-decoration: line-through;
+    margin-left: 12px;
+  }
+
+  .cta-guarantee {
+    font-family: var(--body);
+    font-size: 14px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    margin-top: 8px;
+  }
+
+  .cta-format {
+    font-family: var(--body);
+    font-size: 14px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── STICKY CTA BAR ── */
+  .sticky-bar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--dark);
+    border-top: 1px solid var(--border);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    z-index: 999;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .sticky-bar.visible { transform: translateY(0); }
+
+  .sticky-title {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .sticky-price {
+    font-family: var(--body);
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .sticky-cta {
+    display: inline-block;
+    background: var(--red);
+    color: var(--white);
+    font-family: var(--body);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 12px 28px;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+  .sticky-cta:hover { background: #c1202c; }
+
+  /* ── DIVIDER ── */
+  .divider {
+    width: 60px; height: 1px;
+    background: var(--red);
+    margin: 32px 0;
+    opacity: 0.6;
+  }
+
+  /* ── STATS ROW ── */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 64px;
+  }
+
+  @media (max-width: 600px) {
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .stat-item {
+    background: var(--card);
+    padding: 32px 24px;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 44px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: var(--body);
+    font-size: 13px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 8px;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── COVER FLOAT ── */
+  .cover-float {
+    float: right;
+    margin: 0 0 32px 48px;
+    width: 220px;
+    flex-shrink: 0;
+  }
+
+  .cover-float svg {
+    width: 100%;
+    height: auto;
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.8), 0 0 0 1px rgba(230,57,70,0.2);
+  }
+
+  @media (max-width: 600px) {
+    .cover-float {
+      float: none;
+      width: 160px;
+      margin: 0 auto 40px;
+      display: block;
+    }
+    .hero-cta-group { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 48px 0;
+    text-align: center;
+    font-family: var(--body);
+    font-size: 14px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 0;
+  }
+
+  .nav-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-brand {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.02em;
+  }
+
+  .nav-brand span { color: var(--red); }
+
+  .nav-cta {
+    display: inline-block;
+    border: 1px solid var(--red);
+    color: var(--red);
+    font-family: var(--body);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 8px 20px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav-cta:hover { background: var(--red); color: var(--white); }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand">Mente <span>Asesina</span></div>
+    <a href="#comprar" class="nav-cta">Comprar — $3.990</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="container">
+    <div class="cover-float">
+      <svg viewBox="0 0 680 960" xmlns="http://www.w3.org/2000/svg">
+        <rect width="680" height="960" fill="#0D0D0D"/>
+        <g opacity="0.07" stroke="#E63946" stroke-width="0.8" fill="none">
+          <line x1="124" y1="264" x2="124" y2="696"/><line x1="196" y1="264" x2="196" y2="696"/>
+          <line x1="268" y1="264" x2="268" y2="696"/><line x1="340" y1="264" x2="340" y2="696"/>
+          <line x1="412" y1="264" x2="412" y2="696"/><line x1="484" y1="264" x2="484" y2="696"/>
+          <line x1="556" y1="264" x2="556" y2="696"/>
+          <line x1="124" y1="264" x2="556" y2="264"/><line x1="124" y1="336" x2="556" y2="336"/>
+          <line x1="124" y1="408" x2="556" y2="408"/><line x1="124" y1="480" x2="556" y2="480"/>
+          <line x1="124" y1="552" x2="556" y2="552"/><line x1="124" y1="624" x2="556" y2="624"/>
+          <line x1="124" y1="696" x2="556" y2="696"/>
+        </g>
+        <g opacity="0.12" stroke="#E63946" stroke-width="2" fill="none">
+          <line x1="268" y1="264" x2="268" y2="696"/><line x1="412" y1="264" x2="412" y2="696"/>
+          <line x1="124" y1="480" x2="556" y2="480"/>
+        </g>
+        <g opacity="0.06" fill="#FFFFFF" font-family="Georgia,serif" font-size="22" text-anchor="middle">
+          <text x="160" y="312">3</text><text x="232" y="384">7</text><text x="304" y="456">2</text>
+          <text x="376" y="312">5</text><text x="448" y="456">4</text><text x="520" y="384">1</text>
+          <text x="160" y="528">6</text><text x="376" y="672">3</text><text x="448" y="528">2</text>
+          <text x="520" y="600">5</text><text x="160" y="672">4</text>
+        </g>
+        <rect x="60" y="64" width="560" height="1" fill="#E63946" opacity="0.6"/>
+        <text x="340" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="12" letter-spacing="4" fill="#E63946" opacity="0.9">EDICIÓN PREMIUM · VOLUMEN I</text>
+        <text x="340" y="220" text-anchor="middle" font-family="Georgia,serif" font-size="98" font-weight="900" fill="#FFFFFF" letter-spacing="-1">MENTE</text>
+        <text x="340" y="318" text-anchor="middle" font-family="Georgia,serif" font-size="98" font-weight="900" fill="#E63946" letter-spacing="-1">ASESINA</text>
+        <rect x="140" y="340" width="400" height="0.8" fill="#FFFFFF" opacity="0.15"/>
+        <text x="340" y="376" text-anchor="middle" font-family="Georgia,serif" font-size="18" fill="#CCCCCC" letter-spacing="0.5" font-style="italic">100 Murdokus que entrenan tu mente</text>
+        <text x="340" y="400" text-anchor="middle" font-family="Georgia,serif" font-size="18" fill="#CCCCCC" letter-spacing="0.5" font-style="italic">para pensar diferente</text>
+        <g transform="translate(289,430)">
+          <rect x="0" y="0" width="102" height="102" rx="4" fill="#1A1A1A" opacity="0.8"/>
+          <rect x="3" y="3" width="30" height="30" rx="2" fill="#E63946" opacity="0.9"/>
+          <rect x="36" y="3" width="30" height="30" rx="2" fill="#1E1E1E"/>
+          <rect x="69" y="3" width="30" height="30" rx="2" fill="#1E1E1E"/>
+          <rect x="3" y="36" width="30" height="30" rx="2" fill="#1E1E1E"/>
+          <rect x="36" y="36" width="30" height="30" rx="2" fill="#E63946" opacity="0.7"/>
+          <rect x="69" y="36" width="30" height="30" rx="2" fill="#1E1E1E"/>
+          <rect x="3" y="69" width="30" height="30" rx="2" fill="#1E1E1E"/>
+          <rect x="36" y="69" width="30" height="30" rx="2" fill="#1E1E1E"/>
+          <rect x="69" y="69" width="30" height="30" rx="2" fill="#E63946" opacity="0.5"/>
+          <text x="18" y="25" text-anchor="middle" font-family="Georgia,serif" font-size="16" font-weight="700" fill="#FFFFFF">4</text>
+          <text x="51" y="25" text-anchor="middle" font-family="Georgia,serif" font-size="16" fill="#666">1</text>
+          <text x="84" y="25" text-anchor="middle" font-family="Georgia,serif" font-size="16" fill="#666">2</text>
+          <text x="18" y="58" text-anchor="middle" font-family="Georgia,serif" font-size="16" fill="#666">6</text>
+          <text x="51" y="58" text-anchor="middle" font-family="Georgia,serif" font-size="16" font-weight="700" fill="#FFFFFF">3</text>
+          <text x="84" y="58" text-anchor="middle" font-family="Georgia,serif" font-size="16" fill="#666">5</text>
+          <text x="18" y="91" text-anchor="middle" font-family="Georgia,serif" font-size="16" fill="#666">2</text>
+          <text x="51" y="91" text-anchor="middle" font-family="Georgia,serif" font-size="16" fill="#666">5</text>
+          <text x="84" y="91" text-anchor="middle" font-family="Georgia,serif" font-size="16" font-weight="700" fill="#FFFFFF">1</text>
+          <rect x="0" y="0" width="102" height="102" rx="4" fill="none" stroke="#E63946" stroke-width="1" opacity="0.5"/>
+        </g>
+        <rect x="60" y="703" width="560" height="1" fill="#E63946" opacity="0.6"/>
+        <rect x="98" y="730" width="140" height="28" rx="2" fill="none" stroke="#333" stroke-width="1"/>
+        <text x="168" y="749" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#555" letter-spacing="1">APRENDIZ</text>
+        <rect x="270" y="730" width="140" height="28" rx="2" fill="none" stroke="#555" stroke-width="1"/>
+        <text x="340" y="749" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#888" letter-spacing="1">INSPECTOR</text>
+        <rect x="442" y="730" width="140" height="28" rx="2" fill="#E63946" fill-opacity="0.1" stroke="#E63946" stroke-width="1"/>
+        <text x="512" y="749" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#E63946" letter-spacing="1">ASESINO</text>
+        <text x="340" y="820" text-anchor="middle" font-family="Georgia,serif" font-size="22" fill="#FFFFFF" font-style="italic">Mente Asesina</text>
+        <text x="340" y="872" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#333" letter-spacing="1.5" font-style="italic">¿Podés resolverlos todos?</text>
+        <rect x="20" y="20" width="640" height="920" rx="4" fill="none" stroke="#E63946" stroke-width="0.8" opacity="0.2"/>
+      </svg>
+    </div>
+
+    <p class="hero-eyebrow">Para mentes que necesitan más que un Sudoku</p>
+    <h1 class="hero-title">
+      <span class="line-white">El puzzle que</span>
+      <span class="line-red">no pudiste parar</span>
+      <span class="line-white">de resolver.</span>
+    </h1>
+    <p class="hero-sub">
+      100 Murdokus originales. Tres niveles de dificultad. Un sistema de 5 técnicas que transforma cómo pensás, no solo cómo jugás.
+    </p>
+    <div class="hero-cta-group">
+      <a href="#comprar" class="btn-primary">Quiero mi copia</a>
+      <div>
+        <div class="hero-price">$3.990 <span class="hero-price-old">$5.990</span></div>
+        <div class="hero-price-note">Precio de lanzamiento · Descarga instantánea</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS ── -->
+<section style="padding: 0; border-bottom: 1px solid var(--border);">
+  <div class="container-wide">
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="stat-num">100</div>
+        <div class="stat-label">Murdokus únicos</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">225</div>
+        <div class="stat-label">Páginas de contenido</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Técnicas exclusivas</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Niveles de dificultad</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROBLEMA ── -->
+<section>
+  <div class="container reveal">
+    <p class="section-label">El problema</p>
+    <h2 class="section-title">Tu cerebro se aburrió.<br>Necesita un desafío <em>real</em>.</h2>
+    <p style="font-size: 19px; color: var(--light); max-width: 620px; line-height: 1.7;">
+      Resolviste cientos de Sudokus. Ya no sentís ese momento de tensión antes de completar el tablero. Ya anticipás los patrones. Ya es mecánico. Y en algún momento te preguntaste: ¿esto es todo?
+    </p>
+    <ul class="problem-list">
+      <li>El Sudoku clásico ya no te desafía. Lo resolvés en piloto automático.</li>
+      <li>Probaste variantes más difíciles, pero eran solo más de lo mismo: más números, misma lógica.</li>
+      <li>Sentís que tu capacidad de razonamiento podría más, pero no encontrás el formato que la lleve al límite.</li>
+      <li>Querés algo que te obligue a pensar diferente, no solo más rápido.</li>
+      <li>Cada vez que abrís el celular terminás haciendo scroll en lugar de ejercitar la mente.</li>
+    </ul>
+    <p class="problem-closer reveal">
+      El Sudoku te llevó hasta cierto punto. El Murdoku empieza exactamente donde el Sudoku se quedó.
+    </p>
+  </div>
+</section>
+
+<!-- ── TRANSFORMACIÓN ── -->
+<section>
+  <div class="container reveal">
+    <p class="section-label">Tu vida después</p>
+    <h2 class="section-title">Así se ve resolver<br>un Murdoku <em>cada mañana</em>.</h2>
+    <p style="font-size: 19px; color: var(--light); max-width: 620px; line-height: 1.7;">
+      No es solo entretenimiento. Es 15 minutos que cambian cómo funciona tu mente el resto del día.
+    </p>
+    <div class="transform-grid">
+      <div class="transform-card">
+        <div class="transform-num">01</div>
+        <p class="transform-text"><strong>Empezás el día con un logro concreto.</strong> No con el scroll de redes. Con el clic mental de haber resuelto algo que resistió. Ese estado de alerta activa dura horas.</p>
+      </div>
+      <div class="transform-card">
+        <div class="transform-num">02</div>
+        <p class="transform-text"><strong>Pensás en cascada, no en línea recta.</strong> El Murdoku te entrena para sostener múltiples restricciones a la vez. Eso se traduce directamente en tomar mejores decisiones bajo presión.</p>
+      </div>
+      <div class="transform-card">
+        <div class="transform-num">03</div>
+        <p class="transform-text"><strong>Dejás de bloquearte ante la incertidumbre.</strong> Después de 30 puzzles aprendés a avanzar con información incompleta. Ya no esperás tener todo claro para dar el siguiente paso.</p>
+      </div>
+      <div class="transform-card">
+        <div class="transform-num">04</div>
+        <p class="transform-text"><strong>Tenés un hábito que escala solo.</strong> El libro está diseñado para que cada semana sea más difícil que la anterior. No te aburrís. No dejás de usar el libro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── QUÉ INCLUYE ── -->
+<section>
+  <div class="container-wide reveal">
+    <p class="section-label">El contenido completo</p>
+    <h2 class="section-title" style="max-width: 760px; margin: 0 auto 0 0;">Todo lo que recibís<br>cuando comprás <em>Mente Asesina</em>.</h2>
+
+    <div class="levels-row" style="margin-top: 56px;">
+      <div class="level-card">
+        <div class="level-tag aprendiz">Nivel 1</div>
+        <div class="level-num">30</div>
+        <div class="level-label">Puzzles · Aprendiz</div>
+        <p class="level-desc">Con pistas al pie de página para los primeros 10. Progresión gradual diseñada para que cada técnica aparezca al menos una vez.</p>
+      </div>
+      <div class="level-card">
+        <div class="level-tag inspector">Nivel 2</div>
+        <div class="level-num">40</div>
+        <div class="level-label">Puzzles · Inspector</div>
+        <p class="level-desc">Jaulas de 3 y 4 celdas. Sumas ambiguas. Restricciones que cruzan regiones. Incluye tabla de combinaciones forzadas de referencia.</p>
+      </div>
+      <div class="level-card featured">
+        <div class="level-tag asesino">Nivel 3</div>
+        <div class="level-num">30</div>
+        <div class="level-label">Puzzles · Asesino</div>
+        <p class="level-desc">Sin pistas. Con tiempo objetivo. Los 3 patrones ocultos que solo los mejores detectan. El nivel que separa a los buenos de los excepcionales.</p>
+      </div>
+    </div>
+
+    <div class="includes-wrapper" style="margin-top: 2px;">
+      <div class="include-item">
+        <strong>Capítulo de técnicas</strong>
+        Las 5 técnicas del detective explicadas con ejemplos: eliminación cruzada, cadenas de implicación, zonas de exclusión, sospechoso único y lectura inversa.
+      </div>
+      <div class="include-item">
+        <strong>Soluciones comentadas</strong>
+        Cada uno de los 100 puzzles tiene su solución completa con el movimiento clave identificado. Aprendés tanto al resolver como al revisar.
+      </div>
+      <div class="include-item">
+        <strong>La ciencia detrás del juego</strong>
+        Por qué el Murdoku activa el córtex prefrontal. Cómo construir el hábito de 15 minutos. Tabla de progreso personal para los 100 puzzles.
+      </div>
+      <div class="include-item">
+        <strong>Guía de primer uso</strong>
+        Tu primer Murdoku resuelto paso a paso. En los primeros 10 minutos ya sabés exactamente cómo funciona el sistema.
+      </div>
+    </div>
+
+    <div class="bonus-box reveal">
+      <p class="bonus-label">Bonus exclusivo</p>
+      <h3 class="bonus-title">El Murdoku Asesino Final + Certificado descargable</h3>
+      <p class="bonus-desc">Un puzzle de diseño único que no existe en ninguna otra colección. Solo para quienes completan los 100 anteriores. Si lo resolvés sin mirar la solución, recibís tu certificado de Mente Asesina para descargar e imprimir.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── QUOTE ── -->
+<div class="quote-section">
+  <div class="container">
+    <p class="quote-text reveal">
+      "No te lo vendemos como un pasatiempo.<br>Te lo vendemos como <span>entrenamiento mental serio</span>.<br>La diferencia se nota en la primera semana."
+    </p>
+  </div>
+</div>
+
+<!-- ── OBJECIONES ── -->
+<section>
+  <div class="container reveal">
+    <p class="section-label">Las dudas más comunes</p>
+    <h2 class="section-title">Respondemos todo<br>antes de que <em>preguntes</em>.</h2>
+
+    <div class="objection-list">
+      <div class="objection-item">
+        <div class="objection-q" onclick="toggle(this)">
+          <div class="objection-icon">?</div>
+          <div class="objection-question">Nunca hice un Murdoku. ¿Lo voy a entender?</div>
+        </div>
+        <div class="objection-answer">
+          Sí. El Capítulo 1 arranca desde cero: te explicamos qué es un Murdoku, cómo se lee el tablero y resolvemos el primer puzzle juntos, paso a paso, en menos de 10 minutos. No necesitás saber nada de Killer Sudoku. Solo necesitás haber resuelto algún Sudoku en tu vida — o ni eso.
+        </div>
+      </div>
+
+      <div class="objection-item">
+        <div class="objection-q" onclick="toggle(this)">
+          <div class="objection-icon">?</div>
+          <div class="objection-question">¿Qué pasa si me quedo trabado en un puzzle?</div>
+        </div>
+        <div class="objection-answer">
+          Los primeros 10 puzzles de cada nivel tienen pistas al pie. Todos los 100 puzzles tienen su solución comentada al final de cada sección — no al final del libro, sino cerca, para que sea fácil consultar. Y el Capítulo 2 tiene las 5 técnicas del detective: si te trabás, es porque no estás aplicando alguna de ellas. La solución siempre está ahí.
+        </div>
+      </div>
+
+      <div class="objection-item">
+        <div class="objection-q" onclick="toggle(this)">
+          <div class="objection-icon">?</div>
+          <div class="objection-question">¿No es lo mismo que buscar puzzles gratis en internet?</div>
+        </div>
+        <div class="objection-answer">
+          Los puzzles gratis que encontrás online son colecciones sin estructura, sin explicación de técnicas y sin progresión pedagógica. Son como tener un gimnasio sin ningún programa de entrenamiento. Este libro tiene un sistema: cada puzzle tiene un propósito en la secuencia, cada nivel construye sobre el anterior, y las técnicas están explicadas para que puedas aplicarlas conscientemente. La diferencia es entre practicar y entrenarse.
+        </div>
+      </div>
+
+      <div class="objection-item">
+        <div class="objection-q" onclick="toggle(this)">
+          <div class="objection-icon">?</div>
+          <div class="objection-question">¿En qué formato llega? ¿Lo puedo imprimir?</div>
+        </div>
+        <div class="objection-answer">
+          Llega como PDF de 225 páginas, optimizado tanto para pantalla como para impresión. Las grillas tienen alto contraste en blanco y negro. Lo podés usar desde el teléfono, la tablet, la computadora, o imprimirlo en casa y resolverlo con lápiz — que es como la mayoría de nuestros lectores prefiere hacerlo.
+        </div>
+      </div>
+
+      <div class="objection-item">
+        <div class="objection-q" onclick="toggle(this)">
+          <div class="objection-icon">?</div>
+          <div class="objection-question">¿Cuánto tiempo me va a llevar terminarlo?</div>
+        </div>
+        <div class="objection-answer">
+          Depende de tu ritmo. Con 15 minutos diarios, los 100 puzzles se terminan en 4 a 8 semanas dependiendo del nivel. Algunos lectores van más rápido en los primeros 30 y más despacio en los últimos. Está diseñado para que lo usés de forma sostenida, no para terminarlo en un fin de semana y guardarlo.
+        </div>
+      </div>
+
+      <div class="objection-item">
+        <div class="objection-q" onclick="toggle(this)">
+          <div class="objection-icon">?</div>
+          <div class="objection-question">¿Qué pasa si no me gusta?</div>
+        </div>
+        <div class="objection-answer">
+          Si resolvés el primer Murdoku del libro en los primeros 10 minutos y no sentís el clic mental que describimos, no era para vos — y lo entendemos. Pero en nuestra experiencia, ese clic llega sin excepción. El primer puzzle resuelto con lógica pura, sin adivinar, es suficiente para que el libro se quede en tu mesa de noche.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA FINAL ── -->
+<section class="cta-section" id="comprar">
+  <div class="container">
+    <p class="section-label" style="text-align:center;">Precio de lanzamiento</p>
+    <h2 class="cta-title reveal">Tu mente está lista.<br>El libro también.</h2>
+    <p class="cta-sub reveal">100 puzzles. 225 páginas. Un sistema que funciona desde los primeros 10 minutos.</p>
+
+    <div class="cta-box reveal">
+      <div>
+        <span class="cta-price-display">$3.990</span>
+        <span class="cta-price-old">$5.990</span>
+      </div>
+      <a href="#" class="btn-large">Comprar ahora — Descarga instantánea</a>
+      <p class="cta-guarantee">PDF · 225 páginas · Optimizado para imprimir</p>
+      <p class="cta-format" style="margin-top:8px; font-style:italic; color: var(--muted);">Precio sube a $5.990 al finalizar el lanzamiento.</p>
+    </div>
+
+    <div class="divider" style="margin: 64px auto;"></div>
+
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 560px; margin: 0 auto; text-align:center;">
+      <div>
+        <div style="font-family: var(--serif); font-size: 28px; font-weight:700; color: var(--white);">10 min</div>
+        <div style="font-family: var(--body); font-size: 13px; color: var(--muted); letter-spacing:0.1em; text-transform:uppercase; margin-top:6px;">Para tu primer clic mental</div>
+      </div>
+      <div>
+        <div style="font-family: var(--serif); font-size: 28px; font-weight:700; color: var(--white);">15 min</div>
+        <div style="font-family: var(--body); font-size: 13px; color: var(--muted); letter-spacing:0.1em; text-transform:uppercase; margin-top:6px;">Al día para notar el cambio</div>
+      </div>
+      <div>
+        <div style="font-family: var(--serif); font-size: 28px; font-weight:700; color: var(--white);">100%</div>
+        <div style="font-family: var(--body); font-size: 13px; color: var(--muted); letter-spacing:0.1em; text-transform:uppercase; margin-top:6px;">Puzzles con solución única</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>Mente Asesina · Edición Premium Vol. 1 · PDF descargable</p>
+    <p style="margin-top: 8px; font-style: italic; color: #444;">¿Podés resolverlos todos?</p>
+  </div>
+</footer>
+
+<!-- ── STICKY BAR ── -->
+<div class="sticky-bar" id="stickyBar">
+  <div>
+    <div class="sticky-title">Mente Asesina</div>
+    <div class="sticky-price">100 Murdokus · PDF · 225 páginas</div>
+  </div>
+  <a href="#comprar" class="sticky-cta">Comprar — $3.990</a>
+</div>
+
+<script>
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Sticky bar
+  const sticky = document.getElementById('stickyBar');
+  window.addEventListener('scroll', () => {
+    sticky.classList.toggle('visible', window.scrollY > 500);
+  });
+
+  // Objection toggle
+  function toggle(el) {
+    const item = el.closest('.objection-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.objection-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>
